@@ -1,10 +1,29 @@
 import { Component } from '@angular/core';
+import { ApiUrls } from './apiUrl';
+import { docTileViewAndDocListNavApis  } from './apiUrlsInterface';
 
 @Component({
-  selector: 'my-app',
+  selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: [ './app.component.css' ]
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent  {
-  name = 'Angular';
+export class AppComponent {
+  title = 'testApp';
+
+  public apiUrlForDocument : docTileViewAndDocListNavApis = {
+    documentsForPage : ApiUrls.getDocumentsForPage
+   }
+
+   public viewType : string='1';
+  public showTilesCount : number = 10 ;
+  public routePath : string = '';
+
+  public selectedDocId : string;
+  
+  public styleConfig = { }
+
+  selectedListData(args){
+    //console.log(args);
+    this.selectedDocId = args;
+  }
 }
